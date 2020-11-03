@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> 05211942000003/Muhammad Daffa Saputra </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </script>
+    <style>
+        .label {
+            float: left;
+            width: 150px;
+        }
+
+        .infobox {
+            width: 200px;
+        }
+
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+
+        .submit {
+            margin-left: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="signup" method="post" action="">
+        <div><span class="label">Enter Phone number </span><input type="text" class="infobox" name="phone" /><span
+                class="error"> Phone number can contain only numbers, + and -
+            </span></div>
+        <input class="submit" type="submit" value="Submit">
+    </form>
+
+</body>
+
+<script>$(document).ready(function() {
+            $('.error').hide(); //Hidden elements will not be displayed at all
+
+            $('.submit').click(function(event) {
+                    //Specifies the function to run when the click event occurs
+                    var data=$('.infobox').val(); //returns or sets the value attribute of the selected elements.
+
+                    if(validate_phoneno(data)) {
+            $('.error').hide(); //Hidden elements will not be displayed at all
+                    }
+
+                    else {
+            $('.error').show(); //shows the hidden, selected elements.
+                        event.preventDefault(); //method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+                    }
+                }
+
+            );
+        }
+
+
+    );
+
+    function validate_phoneno(ph) {
+        var pattern=new RegExp(/^[0-9-+]+$/);
+        return pattern.test(ph); //tests for a match in a string.
+    }
+</script>
